@@ -42,10 +42,10 @@
                         </button>
                         <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
                             <ul class="navbar-nav text-uppercase">
-                                <li class="nav-item active">
+                                <li class="nav-item ">
                                     <a class="nav-link tm-nav-link" href="Index.html">Home</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item active">
                                     <a class="nav-link tm-nav-link" href="Ingresos.php">Ingresos<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">

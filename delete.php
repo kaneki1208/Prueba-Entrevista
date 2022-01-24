@@ -3,12 +3,12 @@
 include("config/database.php");
 $con=conectar();
 
-$OrdenServ=$_GET['id'];
+$OrdenServ=$_POST['OrdenServ'];
 
 $sql="DELETE FROM itemsalm  WHERE OrdenServ='$OrdenServ'";
 $query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location: Index.php");
+        Header("Location: Salida.php");
     }
 ?>

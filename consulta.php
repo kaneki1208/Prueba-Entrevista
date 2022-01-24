@@ -48,10 +48,10 @@
                                 <li class="nav-item">
                                     <a class="nav-link tm-nav-link" href="Ingresos.php">Ingresos<span class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item active">
+                                <li class="nav-item">
                                     <a class="nav-link tm-nav-link" href="Salida.php">Salidas</a>
                                 </li>                            
-                                <li class="nav-item">
+                                <li class="nav-item active">
                                     <a class="nav-link tm-nav-link" href="Consulta.php">Consulta</a>
                                 </li>
                             </ul>                            
@@ -64,17 +64,35 @@
                 <div class="tm-col-left"></div>
                 <main class="tm-col-right">
                 <section >
-                <form action="delete.php" method="POST">
-                <div class="form-group mb-4">
-                         <h5><b class="color">Orden de servicio:</b></h5> <input type="text" name="OrdenServ" class="form-control" placeholder="Colocar Orden de Servicio" required="" />
-                 </div>
-                  <button type="submit" value="Eliminar Registro" name="btnEliminar"class="btn btn-primary width-100" style="background-color: #E82D2D;border-color: #E82D2D;">Eliminar</button>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 </section>
                 </form>
                 </main>
             </div>
         </div>        
+
+
+
+
+
+
+
 
         <div class="tm-row">
             <div class="tm-col-left text-center">            
