@@ -9,6 +9,6 @@ $sql="DELETE FROM itemsalm  WHERE OrdenServ='$OrdenServ'";
 $query=mysqli_query($con,$sql);
 
     if($query){
-        Header("Location: Salida.php");
+        Header("Location: consulta.php");
     }
 ?>

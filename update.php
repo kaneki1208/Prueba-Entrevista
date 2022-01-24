@@ -1,4 +1,5 @@
 <?php
+
 include("config/database.php");
 $con=conectar();
 
@@ -12,12 +13,9 @@ $Lado=$_POST['Lado'];
 $NotaSalida=$_POST['NotaSalida'];
 $TipCarga=$_POST['TipCarga'];
 
-$sql="INSERT INTO itemsalm VALUES('$OrdenServ','$Clasificado','$Description','$Bloque','$Columna','$Fila','$Lado','$NotaSalida','$TipCarga')";
-$query= mysqli_query($con,$sql);
-
-if($query){
-    Header("Location: consulta.php");
-    
-}else {
-}
+$sql="UPDATE itemsalm SET  Clasificado='$Clasificado',Description='$Description',Bloque='$Bloque',Columna='$Columna',Fila='$Fila',Lado='$Lado',NotaSalida='$NotaSalida',TipCarga='$TipCarga' WHERE OrdenServ='$OrdenServ'";
+$query=mysqli_query($con,$sql);
+    if($query){
+        Header("Location: consulta.php");
+    }
 ?>

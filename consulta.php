@@ -7,7 +7,6 @@
 
     $row=mysqli_fetch_array($query);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,16 +41,16 @@
                         </button>
                         <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
                             <ul class="navbar-nav text-uppercase">
-                                <li class="nav-item">
+                                <li class="nav-item ">
                                     <a class="nav-link tm-nav-link" href="Index.html">Home</a>
                                 </li>
-                                <li class="nav-item">
+                                <li class="nav-item active">
                                     <a class="nav-link tm-nav-link" href="Ingresos.php">Ingresos<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link tm-nav-link" href="Salida.php">Salidas</a>
                                 </li>                            
-                                <li class="nav-item active">
+                                <li class="nav-item">
                                     <a class="nav-link tm-nav-link" href="Consulta.php">Consulta</a>
                                 </li>
                             </ul>                            
@@ -59,66 +58,50 @@
                     </nav>
                 </div>
             </div>
-            
-            <div class="tm-row">
-                <div class="tm-col-left"></div>
-                <main class="tm-col-right">
-                <section >
-            
 
+            <div class="container mt-5">
+                        <div class="col-md-16">
+                            <table class="table" >
+                                <thead class="table-success table-striped" >
+                                    <tr>
+                                        <th>OrdenServ</th>
+                                        <th>Clasificado</th>
+                                        <th>Description</th>
+                                        <th>NotaSalida</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th><th></th>
+                                        
+                                    </tr>
+                                </thead>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </section>
-                </form>
-                </main>
+                                <tbody>
+                                        <?php
+                                            while($row=mysqli_fetch_array($query)){
+                                        ?>
+                                            <tr>
+                                                <th><?php  echo $row['OrdenServ']?></th>
+                                                <th><?php  echo $row['Clasificado']?></th>
+                                                <th><?php  echo $row['Description']?></th>
+                                                <th><?php  echo $row['NotaSalida']?></th>   
+                                                <th></th>
+                                                <th></th>
+                                               
+                                                <th align="right"><a href="actualizar.php?id=<?php echo $row['OrdenServ'] ?>" class="btn btn-info">Editar</a></th>
+                                            </tr>
+                                        <?php 
+                                            }
+                                        ?>
+                                </tbody>
+                            </table>
+                    
+                    </div>  
             </div>
-        </div>        
-
-
-
-
-
-
-
-
-        <div class="tm-row">
-            <div class="tm-col-left text-center">            
-                <ul class="tm-bg-controls-wrapper">
-                    <li class="tm-bg-control active" data-id="0"></li>
-                    <li class="tm-bg-control" data-id="1"></li>
-                    <li class="tm-bg-control" data-id="2"></li>
-                </ul>            
-            </div>        
-            <div class="tm-col-right tm-col-footer">
-                <footer class="tm-site-footer text-right">
-                    <p class="mb-0">Copyright 2022 KOMATSU MITSUI</p>
-                </footer>
-            </div>  
-        </div>
-
-        <!-- Diagonal background design -->
-        <div class="tm-bg">
-            <div class="tm-bg-left"></div>
-            <div class="tm-bg-right"></div>
-        </div>
-    </div>
-
+            
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.backstretch.min.js"></script>
     <script src="js/templatemo-script.js"></script>
 </body>
+    </body>
 </html>
