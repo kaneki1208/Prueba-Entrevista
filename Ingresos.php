@@ -1,34 +1,11 @@
-<?php
+<?php 
+    include("config/database.php");
+    $con=conectar();
 
-require 'config/database.php';  
+    $sql="SELECT *  FROM itemsalm";
+    $query=mysqli_query($con,$sql);
 
-
-    if(
-        isset($_POST["OrdenServ"]) &&
-        isset($_POST["Clasificado"]) &&
-        isset($_POST["Description"]) &&
-        isset($_POST["Bloque"]) &&
-        isset($_POST["Columna"]) &&
-        isset($_POST["Fila"]) &&
-        isset($_POST["Lado"]) &&
-        isset($_POST["NotaSalida"]) &&
-        isset($_POST["TipCarga	"]) 
-    ){
-        $conexion->query("INSERT INTO itemsalm VALUES(
-             '".$_POST["OrdenServ"].".,
-             '".$_POST["Clasificado"].".,
-             '".$_POST["Description"].".,
-             '".$_POST["Bloque"].".,
-             '".$_POST["Columna"].".,
-             '".$_POST["Fila"].".,
-             '".$_POST["NotaSalida"].".,
-             '".$_POST["TipCarga"].".
-        )
-        ");
-        header("Location: lista.php");
-    }
-
-
+    $row=mysqli_fetch_array($query);
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +66,7 @@ require 'config/database.php';
                 <section >
                         <h1><b>Ingreso</b></h1>
                         <br>
-                        <form id="contact-form" action="Ingresos.php" method="POST">
+                        <form id="contact-form" action="insertar.php" method="POST">
                             <div class="form-group mb-4">
                                 <h5><b class="color">Orden de servicio:</b></h5> <input type="text" name="OrdenServ" class="form-control" placeholder="Colocar Orden de Servicio" required="" />
                             </div>
@@ -153,7 +130,7 @@ require 'config/database.php';
                             <div class="form-group mb-4">
                                 <h5><b class="color">Tipo de Carga</b></h5> <input type="text" name="TipCarga" class="form-control" placeholder="Colocar el tipo de carga" required="" />
                             </div>
-                            <input type="submit" value="Agregar">
+                            <input type="submit" class="btn btn-primary">
                         </form>
                     </section>
                 </main>
