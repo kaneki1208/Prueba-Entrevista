@@ -1,12 +1,32 @@
 <?php
 
 require 'config/database.php';  
-$db= new Database();
-$con= $db->conectar();
 
-$sql= $con->prepare("SELECT CodProdu,NomProd,Precio from productos");
-$sql->execute();
-$resultado= $sql->fetchAll(PDO::FETCH_ASSOC);
+
+    if(
+        isset($_POST["OrdenServ"]) &&
+        isset($_POST["Clasificado"]) &&
+        isset($_POST["Description"]) &&
+        isset($_POST["Bloque"]) &&
+        isset($_POST["Columna"]) &&
+        isset($_POST["Fila"]) &&
+        isset($_POST["Lado"]) &&
+        isset($_POST["NotaSalida"]) &&
+        isset($_POST["TipCarga	"]) 
+    ){
+        $conexion->query("INSERT INTO itemsalm VALUES(
+             '".$_POST["OrdenServ"].".,
+             '".$_POST["Clasificado"].".,
+             '".$_POST["Description"].".,
+             '".$_POST["Bloque"].".,
+             '".$_POST["Columna"].".,
+             '".$_POST["Fila"].".,
+             '".$_POST["NotaSalida"].".,
+             '".$_POST["TipCarga"].".
+        )
+        ");
+        header("Location: lista.php");
+    }
 
 
 ?>
@@ -46,16 +66,16 @@ $resultado= $sql->fetchAll(PDO::FETCH_ASSOC);
                         <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
                             <ul class="navbar-nav text-uppercase">
                                 <li class="nav-item active">
-                                    <a class="nav-link tm-nav-link" href="#">Home</a>
+                                    <a class="nav-link tm-nav-link" href="Index.html">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="Ingeros.php">Ingresos<span class="sr-only">(current)</span></a>
+                                    <a class="nav-link tm-nav-link" href="Ingresos.php">Ingresos<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="Salidas.html">Salidas</a>
+                                    <a class="nav-link tm-nav-link" href="Salida.php">Salidas</a>
                                 </li>                            
                                 <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="Consulta.html">Consulta</a>
+                                    <a class="nav-link tm-nav-link" href="Consulta.php">Consulta</a>
                                 </li>
                             </ul>                            
                         </div>                        
@@ -66,7 +86,76 @@ $resultado= $sql->fetchAll(PDO::FETCH_ASSOC);
             <div class="tm-row">
                 <div class="tm-col-left"></div>
                 <main class="tm-col-right">
-                   
+                <section >
+                        <h1><b>Ingreso</b></h1>
+                        <br>
+                        <form id="contact-form" action="Ingresos.php" method="POST">
+                            <div class="form-group mb-4">
+                                <h5><b class="color">Orden de servicio:</b></h5> <input type="text" name="OrdenServ" class="form-control" placeholder="Colocar Orden de Servicio" required="" />
+                            </div>
+                            <div class="form-group mb-4">
+                                <h5><b class="color">Clasificación:</b></h5> 
+                                <select name="Clasificado" id="cars">
+                                    <option value="E">EVALUADO</option>
+                                    <option value="R">REPUESTO</option>
+                                    <option value="B">BASE</option>
+                                    <option value="C">COMPRA LOCAL</option>
+                                </select>
+                            </div>
+                            <div class="form-group mb-4">
+                                <h5><b class="color">Descripción:</b></h5> <input type="text" name="Description" class="form-control" placeholder="Colocar nombre del item" required="" />
+                            </div>
+                            
+                            <div class="row" >
+                            <div  class="col-md-3">
+                                <h5><b class="color">BLOQUE:</b></h5>
+                                <select name="Bloque" id="cars">
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                </select>
+                            </div>
+                            <div  class="col-md-3">
+                                <h5><b class="color">COLUMNA:</b></h5> 
+                                <select name="Columna" id="cars">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>       
+                            <div  class="col-md-3">
+                                <h5><b class="color">FILA:</b></h5> 
+                                <select name="Fila" id="cars">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                            </div>
+                            <div  class="col-md-3">
+                                <h5><b class="color">LADO:</b></h5>
+                                 <select name="Lado" id="cars">
+                                    <option value="DERECHO">D</option>
+                                    <option value="IZQUIERDO">I</option>
+                                    <option value="UNICO">U</option>
+                                </select>
+                            </div>
+                            </div>
+                            <br>
+                            <div class="form-group mb-4">
+                                <h5><b class="color">NS/GR:</b></h5> <input type="text" name="NotaSalida" class="form-control" placeholder="Colocar nota de salida o GR" required="" />
+                            </div>
+                            <div class="form-group mb-4">
+                                <h5><b class="color">Tipo de Carga</b></h5> <input type="text" name="TipCarga" class="form-control" placeholder="Colocar el tipo de carga" required="" />
+                            </div>
+                            <input type="submit" value="Agregar">
+                        </form>
+                    </section>
                 </main>
             </div>
         </div>        

@@ -1,33 +1,15 @@
 <?php
+$enlace = mysqli_connect("127.0.0.1", "piero", "123456", "komatsu");
 
-    class Database
-    {
-        private $hostname = "localhost";
-        private $database = "mydb";
-        private $username = "piero";
-        private $password = "123456";
-        private $charset = "utf8";
+if (!$enlace) {
+    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+    echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
+    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+    exit;
+}
 
+//echo "Éxito: Se realizó una conexión apropiada a MySQL! La base de datos mi_bd es genial." . PHP_EOL;
+//echo "Información del host: " . mysqli_get_host_info($enlace) . PHP_EOL;
 
-    
-
-
-    function conectar()
-    {
-        try{
-        $conexion = "mysql:host=" . $this->hostname . "; dbname=" .  $this->database .  "; charset=" .  $this->charset; 
-        $options = [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_EMULATE_PREPARES => FALSE
-        ];
-
-        $pdo = new PDO($conexion,$this->username,$this->password,$options);
-        return $pdo;
-    }catch(PDOException $e){
-        echo 'Error conexion' . $e->getMessage();
-        exit;
-    }
-    }
-
-    }
+mysqli_close($enlace);
 ?>
