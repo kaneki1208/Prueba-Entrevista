@@ -44,13 +44,13 @@
                                 <li class="nav-item ">
                                     <a class="nav-link tm-nav-link" href="Index.html">Home</a>
                                 </li>
-                                <li class="nav-item active">
+                                <li class="nav-item">
                                     <a class="nav-link tm-nav-link" href="Ingresos.php">Ingresos<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link tm-nav-link" href="Salida.php">Salidas</a>
                                 </li>                            
-                                <li class="nav-item">
+                                <li class="nav-item active">
                                     <a class="nav-link tm-nav-link" href="Consulta.php">Consulta</a>
                                 </li>
                             </ul>                            
@@ -68,7 +68,7 @@
                                         <th>Clasificado</th>
                                         <th>Description</th>
                                         <th>NotaSalida</th>
-                                        <th></th>
+                                        <th>Posición</th>
                                         <th></th>
                                         <th></th><th></th>
                                         
@@ -84,7 +84,8 @@
                                                 <th><?php  echo $row['Clasificado']?></th>
                                                 <th><?php  echo $row['Description']?></th>
                                                 <th><?php  echo $row['NotaSalida']?></th>   
-                                                <th></th>
+                                                <th><?php  echo $row['Bloque']."-".$row['Columna']."-".$row['Fila']."-".$row['Lado']?></th>   
+
                                                 <th></th>
                                                
                                                 <th align="right"><a href="actualizar.php?id=<?php echo $row['OrdenServ'] ?>" class="btn btn-info">Editar</a></th>
